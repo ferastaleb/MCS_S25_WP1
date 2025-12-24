@@ -1,0 +1,12 @@
+body {
+  font-family: "Cairo", sans-serif; //  وضعنا نوع خط آخر لكي يتم استخدامه في حال لم يتم تحميل الخط الرئيسي
+  background-color: #f8f9fa;
+}
+
+h2 {
+  color: #333;
+}
+
+.card {
+  margin-bottom: 20px;
+}
