@@ -1,109 +1,480 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>اتصل بنا</title>
-
-  <!-- Bootstrap CSS -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  >
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اتصل بنا - دليل فعاليات المدينة</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="assets/images/logo.jpg" alt="شعار دليل الفعاليات" height="40" class="me-2">
+                    <span class="fw-bold text-primary">دليل فعاليات المدينة</span>
+                </a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">الرئيسية</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="events.html">الفعاليات</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">عن الدليل</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="contact.html">اتصل بنا</a>
+                        </li>
+                         <li class="nav-item">
+            <button class="btn btn-outline-secondary btn-sm ms-2" onclick="toggleDarkMode()" id="darkModeToggle">
+                <i class="fas fa-moon me-1"></i> وضع الليل
+            </button>
+        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-<!-- ===== Navbar ===== -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand" href="index.html">دليل الفعاليات</a>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="mainNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="index.html">الرئيسية</a></li>
-        <li class="nav-item"><a class="nav-link" href="events.html">الفعاليات</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">عن الدليل</a></li>
-        <li class="nav-item"><a class="nav-link active" href="contact.html">اتصل بنا</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<!-- ===== Main Content ===== -->
-<main class="container my-5">
-
-  <h2 class="mb-4">اتصل بنا</h2>
-
-  <p class="mb-4">
-    يمكنك التواصل معنا عبر النموذج التالي، وسنقوم بالرد عليك في أقرب وقت.
-  </p>
-
-  <!-- ===== Contact Form ===== -->
-  <div class="row">
-    <div class="col-md-6">
-
-      <form id="contactForm">
-
-        <!-- Name -->
-        <div class="mb-3">
-          <label for="name" class="form-label">الاسم</label>
-          <input type="text" id="name" class="form-control" placeholder="أدخل اسمك">
+    <!-- Main Content -->
+    <main class="container mt-5 pt-5">
+        <div class="row">
+            <!-- معلومات الاتصال -->
+            <div class="col-lg-4 mb-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">📞 معلومات الاتصال</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="contact-info mb-4">
+                            <h5 class="text-primary mb-3"><i class="fas fa-map-marker-alt me-2"></i> عنواننا</h5>
+                            <p class="ps-4">شارع المدينة المنورة، حي النخيل<br>المدينة، المملكة العربية السعودية</p>
+                        </div>
+                        
+                        <div class="contact-info mb-4">
+                            <h5 class="text-primary mb-3"><i class="fas fa-phone me-2"></i> الهواتف</h5>
+                            <p class="ps-4">
+                                <a href="tel:+966112345678" class="text-decoration-none text-dark">
+                                    +966 11 234 5678
+                                </a><br>
+                                <a href="tel:+966501234567" class="text-decoration-none text-dark">
+                                    +966 50 123 4567
+                                </a>
+                            </p>
+                        </div>
+                        
+                        <div class="contact-info mb-4">
+                            <h5 class="text-primary mb-3"><i class="fas fa-envelope me-2"></i> البريد الإلكتروني</h5>
+                            <p class="ps-4">
+                                <a href="mailto:info@cityeventsguide.com" class="text-decoration-none text-dark">
+                                    info@cityeventsguide.com
+                                </a><br>
+                                <a href="mailto:support@cityeventsguide.com" class="text-decoration-none text-dark">
+                                    support@cityeventsguide.com
+                                </a>
+                            </p>
+                        </div>
+                        
+                        <div class="contact-info">
+                            <h5 class="text-primary mb-3"><i class="fas fa-clock me-2"></i> ساعات العمل</h5>
+                            <p class="ps-4">
+                                الأحد - الخميس: 8:00 صباحاً - 5:00 مساءً<br>
+                                الجمعة - السبت: مغلق
+                            </p>
+                        </div>
+                        
+                        <hr class="my-4">
+                        
+                        <h5 class="text-primary mb-3"><i class="fas fa-share-alt me-2"></i> تابعنا</h5>
+                        <div class="social-links d-flex justify-content-center gap-3">
+                            <a href="#" class="btn btn-outline-primary btn-lg rounded-circle">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="btn btn-outline-primary btn-lg rounded-circle">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="btn btn-outline-primary btn-lg rounded-circle">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="btn btn-outline-primary btn-lg rounded-circle">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- نموذج الاتصال -->
+            <div class="col-lg-8">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">✉️ أرسل رسالة</h4>
+                    </div>
+                    <div class="card-body">
+                        <!-- تنقل بين النماذج -->
+                        <ul class="nav nav-tabs mb-4" id="contactTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button">
+                                    <i class="fas fa-comment me-2"></i> اتصل بنا
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="event-tab" data-bs-toggle="tab" data-bs-target="#event" type="button">
+                                    <i class="fas fa-calendar-plus me-2"></i> إضافة فعالية
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="partnership-tab" data-bs-toggle="tab" data-bs-target="#partnership" type="button">
+                                    <i class="fas fa-handshake me-2"></i> شراكة
+                                </button>
+                            </li>
+                        </ul>
+                        
+                        <!-- محتوى النماذج -->
+                        <div class="tab-content" id="contactTabsContent">
+                            <!-- نموذج الاتصال العادي -->
+                            <div class="tab-pane fade show active" id="contact" role="tabpanel">
+                                <form id="contactForm" onsubmit="return validateContactForm()">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="name" class="form-label">الاسم الكامل *</label>
+                                            <input type="text" class="form-control" id="name" placeholder="أدخل اسمك الكامل">
+                                            <div class="invalid-feedback">يرجى إدخال الاسم الكامل</div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="email" class="form-label">البريد الإلكتروني *</label>
+                                            <input type="email" class="form-control" id="email" placeholder="example@email.com">
+                                            <div class="invalid-feedback">يرجى إدخال بريد إلكتروني صحيح</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="subject" class="form-label">الموضوع *</label>
+                                        <select class="form-select" id="subject">
+                                            <option value="">اختر الموضوع</option>
+                                            <option value="استفسار">استفسار عام</option>
+                                            <option value="اقتراح">اقتراح</option>
+                                            <option value="شكوى">شكوى</option>
+                                            <option value="دعم فني">دعم فني</option>
+                                            <option value="آخر">آخر</option>
+                                        </select>
+                                        <div class="invalid-feedback">يرجى اختيار الموضوع</div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="message" class="form-label">الرسالة *</label>
+                                        <textarea class="form-control" id="message" rows="6" placeholder="اكتب رسالتك هنا..."></textarea>
+                                        <div class="invalid-feedback">يرجى كتابة رسالة تحتوي على 10 أحرف على الأقل</div>
+                                        <div class="form-text">الحد الأدنى لطول الرسالة: 10 أحرف</div>
+                                    </div>
+                                    
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="newsletter">
+                                        <label class="form-check-label" for="newsletter">
+                                            أرغب في تلقي النشرة الإخبارية عن الفعاليات القادمة
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                        <button type="reset" class="btn btn-outline-secondary me-2">
+                                            <i class="fas fa-redo me-2"></i> إعادة تعيين
+                                        </button>
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="fas fa-paper-plane me-2"></i> إرسال الرسالة
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                            
+                            <!-- نموذج إضافة فعالية -->
+                            <div class="tab-pane fade" id="event" role="tabpanel">
+                                <form id="eventForm">
+                                    <div class="mb-3">
+                                        <label for="eventName" class="form-label">اسم الفعالية *</label>
+                                        <input type="text" class="form-control" id="eventName" placeholder="اسم الفعالية">
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="eventDate" class="form-label">تاريخ الفعالية *</label>
+                                            <input type="date" class="form-control" id="eventDate">
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="eventTime" class="form-label">وقت الفعالية *</label>
+                                            <input type="time" class="form-control" id="eventTime">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="eventLocation" class="form-label">مكان الفعالية *</label>
+                                        <input type="text" class="form-control" id="eventLocation" placeholder="المكان">
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="eventCategory" class="form-label">تصنيف الفعالية *</label>
+                                        <select class="form-select" id="eventCategory">
+                                            <option value="">اختر التصنيف</option>
+                                            <option value="ثقافة">ثقافة</option>
+                                            <option value="رياضة">رياضة</option>
+                                            <option value="موسيقى">موسيقى</option>
+                                            <option value="عائلة">عائلة</option>
+                                            <option value="تعليم">تعليم</option>
+                                            <option value="تكنولوجيا">تكنولوجيا</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="eventDescription" class="form-label">وصف الفعالية *</label>
+                                        <textarea class="form-control" id="eventDescription" rows="4" placeholder="وصف مفصل للفعالية"></textarea>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="organizerName" class="form-label">اسم المنظم *</label>
+                                        <input type="text" class="form-control" id="organizerName" placeholder="اسم المنظم أو المؤسسة">
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="organizerContact" class="form-label">معلومات التواصل للمنظم *</label>
+                                        <input type="text" class="form-control" id="organizerContact" placeholder="بريد أو هاتف المنظم">
+                                    </div>
+                                    
+                                    <div class="alert alert-info">
+                                        <i class="fas fa-info-circle me-2"></i>
+                                        سنراجع طلب إضافة الفعالية خلال 48 ساعة وسنتواصل معك للتأكيد.
+                                    </div>
+                                    
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-success" onclick="submitEventForm()">
+                                            <i class="fas fa-check-circle me-2"></i> تقديم طلب إضافة فعالية
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                            
+                            <!-- نموذج الشراكة -->
+                            <div class="tab-pane fade" id="partnership" role="tabpanel">
+                                <div class="alert alert-warning">
+                                    <h5><i class="fas fa-handshake me-2"></i> فرص الشراكة</h5>
+                                    <p>نرحب بالشراكات مع المؤسسات والشركات التي تهدف إلى خدمة المجتمع وتعزيز الفعاليات المحلية.</p>
+                                </div>
+                                
+                                <form id="partnershipForm">
+                                    <div class="mb-3">
+                                        <label for="companyName" class="form-label">اسم المؤسسة *</label>
+                                        <input type="text" class="form-control" id="companyName">
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="partnershipType" class="form-label">نوع الشراكة المطلوبة *</label>
+                                        <select class="form-select" id="partnershipType">
+                                            <option value="">اختر نوع الشراكة</option>
+                                            <option value="راعي">راعي رسمي</option>
+                                            <option value="شريك إعلامي">شريك إعلامي</option>
+                                            <option value="شريك تنظيمي">شريك تنظيمي</option>
+                                            <option value="شريك استراتيجي">شريك استراتيجي</option>
+                                            <option value="آخر">آخر</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="companyDescription" class="form-label">وصف المؤسسة ونشاطاتها *</label>
+                                        <textarea class="form-control" id="companyDescription" rows="3"></textarea>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="proposal" class="form-label">مقترح الشراكة *</label>
+                                        <textarea class="form-control" id="proposal" rows="4" placeholder="اشرح فكرة الشراكة المقترحة"></textarea>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="contactPerson" class="form-label">الشخص المسؤول عن التواصل *</label>
+                                        <input type="text" class="form-control" id="contactPerson">
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="companyWebsite" class="form-label">موقع المؤسسة الإلكتروني</label>
+                                        <input type="url" class="form-control" id="companyWebsite" placeholder="https://example.com">
+                                    </div>
+                                    
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-warning" onclick="submitPartnershipForm()">
+                                            <i class="fas fa-paper-plane me-2"></i> إرسال طلب الشراكة
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- الأسئلة الشائعة -->
+                <div class="card shadow-sm mt-4">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">❓ الأسئلة الشائعة</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="accordion" id="faqAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                        كيف يمكنني إضافة فعالية إلى الدليل؟
+                                    </button>
+                                </h2>
+                                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        يمكنك إضافة فعالية عن طريق ملء نموذج "إضافة فعالية" في هذه الصفحة، أو إرسال تفاصيل الفعالية إلى بريدنا الإلكتروني. ستتم مراجعة طلبك خلال 48 ساعة.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                        هل هناك رسوم لإضافة فعالية؟
+                                    </button>
+                                </h2>
+                                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        لا، إضافة الفعاليات مجانية تماماً. نحن نهدف إلى خدمة المجتمع ودعم جميع الفعاليات المحلية.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                        كم من الوقت تستغرق مراجعة طلب إضافة فعالية؟
+                                    </button>
+                                </h2>
+                                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        عادةً ما تتم المراجعة خلال 48 ساعة عمل. في بعض الأحيان قد تستغرق وقتاً أطول إذا تطلب الأمر تواصل إضافي مع المنظم.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </main>
 
-        <!-- Email -->
-        <div class="mb-3">
-          <label for="email" class="form-label">البريد الإلكتروني</label>
-          <input type="email" id="email" class="form-control" placeholder="example@email.com">
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 class="fw-bold">دليل فعاليات المدينة</h5>
+                    <p>منصة تجمع كل الفعاليات والأنشطة في مدينة واحدة</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="fw-bold">روابط سريعة</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white text-decoration-none">الرئيسية</a></li>
+                        <li><a href="events.html" class="text-white text-decoration-none">الفعاليات</a></li>
+                        <li><a href="about.html" class="text-white text-decoration-none">عن الدليل</a></li>
+                        <li><a href="contact.html" class="text-white text-decoration-none">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="fw-bold">تابعنا</h5>
+                    <div class="social-icons">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-2x"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-2x"></i></a>
+                    </div>
+                    <p class="mt-3">© <span class="current-year">2025</span> دليل فعاليات المدينة. جميع الحقوق محفوظة.</p>
+                </div>
+            </div>
         </div>
+    </footer>
 
-        <!-- Message -->
-        <div class="mb-3">
-          <label for="message" class="form-label">الرسالة</label>
-          <textarea id="message" class="form-control" rows="4" placeholder="اكتب رسالتك هنا"></textarea>
-        </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        // دالة إرسال نموذج إضافة فعالية
+        function submitEventForm() {
+            event.preventDefault();
+            
+            // في تطبيق حقيقي، هنا نرسل البيانات للخادم
+            alert('تم استلام طلب إضافة الفعالية بنجاح! سنتواصل معك خلال 48 ساعة.');
+            document.getElementById('eventForm').reset();
+            
+            // إظهار رسالة نجاح
+            const alertDiv = document.createElement('div');
+            alertDiv.className = 'alert alert-success alert-dismissible fade show mt-3';
+            alertDiv.innerHTML = `
+                <strong>تم بنجاح!</strong> تم استلام طلب إضافة الفعالية. سنراجعه ونعود إليك خلال 48 ساعة.
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            document.getElementById('eventForm').appendChild(alertDiv);
+            
+            // إخفاء الرسالة بعد 5 ثوانٍ
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.remove();
+                }
+            }, 5000);
+            
+            return false;
+        }
 
-        <!-- Submit -->
-        <button type="submit" class="btn btn-primary">
-          إرسال الرسالة
-        </button>
+        // دالة إرسال نموذج الشراكة
+        function submitPartnershipForm() {
+            event.preventDefault();
+            
+            alert('تم استلام طلب الشراكة بنجاح! سيتواصل معك فريق العلاقات خلال 3 أيام عمل.');
+            document.getElementById('partnershipForm').reset();
+            
+            // إظهار رسالة نجاح
+            const alertDiv = document.createElement('div');
+            alertDiv.className = 'alert alert-success alert-dismissible fade show mt-3';
+            alertDiv.innerHTML = `
+                <strong>تم بنجاح!</strong> تم استلام طلب الشراكة. سيتواصل معك فريق العلاقات خلال 3 أيام عمل.
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            document.getElementById('partnershipForm').appendChild(alertDiv);
+            
+            // إخفاء الرسالة بعد 5 ثوانٍ
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.remove();
+                }
+            }, 5000);
+            
+            return false;
+        }
 
-      </form>
-
-      <!-- Alerts -->
-      <div id="alertBox" class="mt-3"></div>
-
-    </div>
-
-    <!-- ===== Contact Info ===== -->
-    <div class="col-md-6">
-      <h5>معلومات تواصل بديلة</h5>
-      <p><strong>البريد:</strong> info@cityevents.com</p>
-      <p><strong>الهاتف:</strong> 000 123 456</p>
-      <p><strong>تابعنا على:</strong></p>
-      <p>
-        <a href="#" class="me-2">Facebook</a>
-        <a href="#" class="me-2">Instagram</a>
-        <a href="#">Twitter</a>
-      </p>
-    </div>
-  </div>
-
-</main>
-
-<!-- ===== Footer ===== -->
-<footer class="bg-dark text-white text-center p-3 mt-4">
-  © 2025 دليل فعاليات المدينة – جميع الحقوق محفوظة
-</footer>
-
-<!-- ===== JavaScript ===== -->
-<script src="assets/js/main.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
+        // تهيئة صفحة الاتصال
+        document.addEventListener('DOMContentLoaded', function() {
+            // إضافة تحقق للنماذج
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // في تطبيق حقيقي، نتحقق من البيانات هنا
+                });
+            });
+        });
+    </script>
 </body>
 </html>
