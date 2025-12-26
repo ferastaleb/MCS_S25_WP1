@@ -1,80 +1,341 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>عن الدليل</title>
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عن الدليل - دليل فعاليات المدينة</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        .team-member {
+            transition: transform 0.3s;
+        }
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+        .mission-card {
+            border-left: 5px solid #4361ee;
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="assets/images/logo.jpg" alt="شعار دليل الفعاليات" height="40" class="me-2">
+                    <span class="fw-bold text-primary">دليل فعاليات المدينة</span>
+                </a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">الرئيسية</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="events.html">الفعاليات</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="about.html">عن الدليل</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">اتصل بنا</a>
+                        </li>
+                         <li class="nav-item">
+            <button class="btn btn-outline-secondary btn-sm ms-2" onclick="toggleDarkMode()" id="darkModeToggle">
+                <i class="fas fa-moon me-1"></i> وضع الليل
+            </button>
+        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-<header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">دليل الفعاليات</a>
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="index.html">الرئيسية</a></li>
-        <li class="nav-item"><a class="nav-link" href="events.html">الفعاليات</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">عن الدليل</a></li>
-        <li class="nav-item"><a class="nav-link" href="contact.html">اتصل بنا</a></li>
-      </ul>
-    </div>
-  </nav>
-</header>
-  
-<main class="container my-4">
+    <!-- Main Content -->
+    <main class="container mt-5 pt-5">
+        <!-- قسم المقدمة -->
+        <section class="text-center mb-5">
+            <h1 class="display-4 fw-bold text-primary mb-4">🏙️ عن دليل فعاليات المدينة</h1>
+            <p class="lead col-lg-8 mx-auto">
+                منصة رقمية شاملة تجمع كل الفعاليات والأنشطة في مدينة واحدة، 
+                تهدف إلى ربط المجتمع بالفعاليات الثقافية، الرياضية، والترفيهية.
+            </p>
+        </section>
 
-  <h2>عن دليل فعاليات المدينة</h2>
+        <!-- الرؤية والرسالة والقيم -->
+        <section class="mb-5">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm border-0 mission-card">
+                        <div class="card-body text-center">
+                            <div class="bg-primary rounded-circle p-3 d-inline-flex mb-3">
+                                <i class="fas fa-eye fa-2x text-white"></i>
+                            </div>
+                            <h3 class="card-title text-primary">رؤيتنا</h3>
+                            <p class="card-text">
+                                أن نكون المنصة الأولى في تجميع وعرض الفعاليات المحلية، 
+                                وأن نساهم في بناء مجتمع حيوي ونشط ثقافياً ورياضياً.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm border-0 mission-card" style="border-left-color: #3a0ca3 !important;">
+                        <div class="card-body text-center">
+                            <div class="bg-secondary rounded-circle p-3 d-inline-flex mb-3" style="background-color: #3a0ca3 !important;">
+                                <i class="fas fa-bullseye fa-2x text-white"></i>
+                            </div>
+                            <h3 class="card-title" style="color: #3a0ca3;">رسالتنا</h3>
+                            <p class="card-text">
+                                توفير منصة سهلة الاستخدام تجمع كل الفعاليات في مكان واحد، 
+                                وتسهل على السكان الوصول إليها والمشاركة فيها.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm border-0 mission-card" style="border-left-color: #f72585 !important;">
+                        <div class="card-body text-center">
+                            <div class="bg-danger rounded-circle p-3 d-inline-flex mb-3" style="background-color: #f72585 !important;">
+                                <i class="fas fa-star fa-2x text-white"></i>
+                            </div>
+                            <h3 class="card-title" style="color: #f72585;">قيمنا</h3>
+                            <ul class="list-unstyled text-start">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> الشمولية</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> الدقة</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> التحديث المستمر</li>
+                                <li><i class="fas fa-check text-success me-2"></i> خدمة المجتمع</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <p>
-    يهدف هذا الدليل إلى مساعدة سكان المدينة في التعرف على
-    الفعاليات الثقافية، الرياضية، والموسيقية بسهولة.
-  </p>
+        <!-- فريق العمل -->
+        <section class="mb-5">
+            <h2 class="text-center mb-4 text-primary">👥 فريق العمل</h2>
+            <p class="text-center mb-5">نحن فريق من الطلاب المتحمسين لتطوير هذه المنصة خدمة لمجتمعنا</p>
+            
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="card text-center team-member shadow-sm">
+                        <img src="assets/images/team1.jpg" class="card-img-top" alt="عضو الفريق 1" height="200">
+                        <div class="card-body">
+                            <h5 class="card-title">أحمد محمد</h5>
+                            <p class="card-text text-muted">مطور واجهات أمامية</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-primary"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="text-primary"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" class="text-primary"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="card text-center team-member shadow-sm">
+                        <img src="assets/images/team2.jpg" class="card-img-top" alt="عضو الفريق 2" height="200">
+                        <div class="card-body">
+                            <h5 class="card-title">سارة عبدالله</h5>
+                            <p class="card-text text-muted">مصممة واجهات المستخدم</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-primary"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="text-primary"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" class="text-primary"><i class="fab fa-behance"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="card text-center team-member shadow-sm">
+                        <img src="assets/images/team3.jpg" class="card-img-top" alt="عضو الفريق 3" height="200">
+                        <div class="card-body">
+                            <h5 class="card-title">خالد علي</h5>
+                            <p class="card-text text-muted">مبرمج JavaScript</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-primary"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="text-primary"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" class="text-primary"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="card text-center team-member shadow-sm">
+                        <img src="assets/images/team4.jpg" class="card-img-top" alt="عضو الفريق 4" height="200">
+                        <div class="card-body">
+                            <h5 class="card-title">فاطمة حسن</h5>
+                            <p class="card-text text-muted">مديرة محتوى</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-primary"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="text-primary"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" class="text-primary"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <h4 class="mt-4">رؤيتنا</h4>
-  <p>
-    أن نكون المصدر الأول لمعرفة الفعاليات المحلية.
-  </p>
+        <!-- سياسات النشر -->
+        <section class="mb-5">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">📋 سياسات النشر وإضافة الفعاليات</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5 class="text-primary">معايير النشر:</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">يجب أن تكون الفعالية عامة ومتاحة للجميع</li>
+                                <li class="list-group-item">يجب أن تكون الفعالية ذات طابع ثقافي، رياضي، ترفيهي أو تعليمي</li>
+                                <li class="list-group-item">يجب تقديم معلومات كاملة ودقيقة عن الفعالية</li>
+                                <li class="list-group-item">يجب الالتزام بالمواعيد المحددة للفعالية</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="text-primary">كيفية إضافة فعالية:</h5>
+                            <ol class="list-group list-group-numbered">
+                                <li class="list-group-item">انتقل إلى صفحة "اتصل بنا"</li>
+                                <li class="list-group-item">املأ نموذج إضافة فعالية جديد</li>
+                                <li class="list-group-item">أرفق جميع المعلومات والصور المطلوبة</li>
+                                <li class="list-group-item">سنراجع طلبك خلال 48 ساعة</li>
+                                <li class="list-group-item">ستظهر الفعالية بعد الموافقة عليها</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 text-center">
+                        <a href="contact.html" class="btn btn-primary btn-lg">
+                            <i class="fas fa-plus-circle me-2"></i> إضافة فعالية جديدة
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <h4 class="mt-4">فريق العمل</h4>
+        <!-- إحصائيات -->
+        <section class="mb-5">
+            <h2 class="text-center mb-4 text-primary">📊 إحصائيات الدليل</h2>
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                            <h1 class="display-3 text-primary fw-bold" id="eventsCount">0</h1>
+                            <p class="text-muted">فعالية منظمة</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                            <h1 class="display-3 text-primary fw-bold" id="categoriesCount">0</h1>
+                            <p class="text-muted">تصنيف مختلف</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                            <h1 class="display-3 text-primary fw-bold" id="organizersCount">0</h1>
+                            <p class="text-muted">منظم نشط</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                            <h1 class="display-3 text-primary fw-bold" id="visitorsCount">0</h1>
+                            <p class="text-muted">زائر شهرياً</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-  <div class="row">
-    <div class="col-md-3">
-      <div class="card text-center">
-        <div class="card-body">
-          <h6>فراس</h6>
-          <p>مدير تقني</p>
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 class="fw-bold">دليل فعاليات المدينة</h5>
+                    <p>منصة تجمع كل الفعاليات والأنشطة في مدينة واحدة</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="fw-bold">روابط سريعة</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white text-decoration-none">الرئيسية</a></li>
+                        <li><a href="events.html" class="text-white text-decoration-none">الفعاليات</a></li>
+                        <li><a href="about.html" class="text-white text-decoration-none">عن الدليل</a></li>
+                        <li><a href="contact.html" class="text-white text-decoration-none">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="fw-bold">تابعنا</h5>
+                    <div class="social-icons">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-2x"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-2x"></i></a>
+                    </div>
+                    <p class="mt-3">© <span class="current-year">2025</span> دليل فعاليات المدينة. جميع الحقوق محفوظة.</p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
+    </footer>
 
-    <div class="col-md-3">
-      <div class="card text-center">
-        <div class="card-body">
-          <h6>عبد الله</h6>
-          <p>خبير مطور واجهات</p>
-        </div>
-      </div>
-    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
     
-    <div class="col-md-3">
-      <div class="card text-center">
-        <div class="card-body">
-          <h6>عثمان</h6>
-          <p>خبير تقني</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</main>
-
-<footer class="bg-dark text-white text-center p-3">
-  © 2025 دليل فعاليات المدينة
-</footer>
-
+    <script>
+        // إحصائيات وهمية
+        document.addEventListener('DOMContentLoaded', function() {
+            // إعداد الإحصائيات
+            document.getElementById('eventsCount').textContent = '156';
+            document.getElementById('categoriesCount').textContent = '8';
+            document.getElementById('organizersCount').textContent = '42';
+            document.getElementById('visitorsCount').textContent = '5.2K';
+            
+            // تأثير عد الإحصائيات
+            const counters = document.querySelectorAll('.display-3');
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent);
+                let current = 0;
+                const increment = target / 50;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.floor(current);
+                        setTimeout(updateCounter, 30);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+                
+                updateCounter();
+            });
+        });
+    </script>
 </body>
 </html>
-
-
