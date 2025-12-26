@@ -1,68 +1,633 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>تفاصيل الفعالية</title>
-
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل الفعالية - دليل فعاليات المدينة</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        .gallery-img {
+            height: 100px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+        .event-header {
+            background: linear-gradient(135deg, #4361ee, #3a0ca3);
+            color: white;
+            padding: 60px 0;
+            margin-top: 76px;
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="assets/images/logo.jpg" alt="شعار دليل الفعاليات" height="40" class="me-2">
+                    <span class="fw-bold text-primary">دليل فعاليات المدينة</span>
+                </a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">الرئيسية</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="events.html">الفعاليات</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">عن الدليل</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">اتصل بنا</a>
+                        </li>
+                         <li class="nav-item">
+            <button class="btn btn-outline-secondary btn-sm ms-2" onclick="toggleDarkMode()" id="darkModeToggle">
+                <i class="fas fa-moon me-1"></i> وضع الليل
+            </button>
+        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand" href="index.html">دليل الفعاليات</a>
-    <ul class="navbar-nav ms-auto">
-      <li class="nav-item"><a class="nav-link" href="index.html">الرئيسية</a></li>
-      <li class="nav-item"><a class="nav-link" href="events.html">الفعاليات</a></li>
-      <li class="nav-item"><a class="nav-link" href="contact.html">اتصل بنا</a></li>
-    </ul>
-  </div>
-</nav>
+    <!-- Main Content -->
+    <main>
+        <!-- قسم رأس الفعالية -->
+        <section class="event-header">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <span class="badge bg-light text-primary fs-6 mb-3" id="eventCategory">ثقافة</span>
+                        <h1 class="display-5 fw-bold mb-3" id="eventTitle">عنوان الفعالية</h1>
+                        <div class="d-flex flex-wrap gap-4 mb-3">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-calendar-alt me-2 fa-lg"></i>
+                                <span id="eventDate">التاريخ</span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-clock me-2 fa-lg"></i>
+                                <span id="eventTime">الوقت</span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-map-marker-alt me-2 fa-lg"></i>
+                                <span id="eventLocation">المكان</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="card shadow-lg">
+                            <div class="card-body">
+                                <h5 class="card-title">سارع بالتسجيل</h5>
+                                <h3 class="text-primary fw-bold mb-3" id="eventPrice">مجاني</h3>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-primary btn-lg" onclick="registerForEvent()">
+                                        <i class="fas fa-calendar-plus me-2"></i> أضف للتقويم
+                                    </button>
+                                    <button class="btn btn-outline-primary btn-lg" onclick="shareCurrentEvent()">
+                                        <i class="fas fa-share-alt me-2"></i> شارك الفعالية
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<main class="container my-4">
+        <!-- تفاصيل الفعالية -->
+        <section class="container py-5">
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- صورة الفعالية الرئيسية -->
+                    <div class="mb-5">
+                        <img id="mainEventImage" src="assets/images/food-festival.jpg" 
+                             class="img-fluid rounded shadow" alt="صورة الفعالية" style="max-height: 400px; width: 100%; object-fit: cover;">
+                    </div>
 
-  <h2>مهرجان الموسيقى</h2>
+                    <!-- وصف الفعالية -->
+                    <div class="mb-5">
+                        <h3 class="mb-4 text-primary">📝 عن الفعالية</h3>
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <p class="lead" id="eventDescription">
+                                    وصف مفصل للفعالية سيظهر هنا...
+                                </p>
+                                
+                                <h5 class="mt-4 text-primary">🎯 أهداف الفعالية:</h5>
+                                <ul class="list-group list-group-flush mb-4">
+                                    <li class="list-group-item">تعزيز الثقافة المجتمعية</li>
+                                    <li class="list-group-item">توفير فرص للترفيه والتعليم</li>
+                                    <li class="list-group-item">دعم المواهب المحلية</li>
+                                </ul>
 
-  <p><strong>التاريخ:</strong> 25 مارس 2025</p>
-  <p><strong>المكان:</strong> مسرح المدينة</p>
+                                <h5 class="mt-4 text-primary">🎁 ما سيحصل عليه المشاركون:</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="card h-100 border-primary">
+                                            <div class="card-body text-center">
+                                                <i class="fas fa-gift fa-2x text-primary mb-3"></i>
+                                                <h6>هدايا تذكارية</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card h-100 border-primary">
+                                            <div class="card-body text-center">
+                                                <i class="fas fa-utensils fa-2x text-primary mb-3"></i>
+                                                <h6>مأكولات مجانية</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-  <img src="assets/img/event1.jpg" class="img-fluid mb-3">
+                    <!-- معرض الصور -->
+                    <div class="mb-5">
+                        <h3 class="mb-4 text-primary">🖼️ معرض الصور</h3>
+                        <div class="row g-3" id="eventGallery">
+                            <!-- سيتم ملؤها عبر JavaScript -->
+                        </div>
+                    </div>
+                </div>
 
-  <p>
-    مهرجان موسيقي يضم عدداً من الفرق المحلية والعالمية،
-    ويستمر لمدة يومين مع أنشطة ترفيهية متنوعة.
-  </p>
+                <!-- الشريط الجانبي -->
+                <div class="col-lg-4">
+                    <!-- معلومات المنظم -->
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">🏢 المنظم</h5>
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-primary rounded-circle p-3 me-3">
+                                    <i class="fas fa-building fa-2x text-white"></i>
+                                </div>
+                                <div>
+                                    <h6 id="eventOrganizer">اسم المنظم</h6>
+                                    <small class="text-muted">منظم الفعالية</small>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#organizerModal">
+                                <i class="fas fa-info-circle me-2"></i> المزيد عن المنظم
+                            </button>
+                        </div>
+                    </div>
 
-  <div class="mb-4">
-    <button class="btn btn-success">أضف إلى التقويم</button>
-    <button class="btn btn-primary">مشاركة</button>
-  </div>
+                    <!-- خريطة الموقع -->
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">🗺️ موقع الفعالية</h5>
+                            <div class="bg-light rounded p-3 text-center mb-3" style="height: 200px;">
+                                <i class="fas fa-map fa-3x text-muted mb-3"></i>
+                                <p id="eventLocationText">موقع الفعالية</p>
+                            </div>
+                            <button class="btn btn-primary w-100" onclick="openMap()">
+                                <i class="fas fa-directions me-2"></i> افتح في خرائط جوجل
+                            </button>
+                        </div>
+                    </div>
 
-  <hr>
+                    <!-- فعاليات ذات صلة -->
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">🔗 فعاليات ذات صلة</h5>
+                            <div id="relatedEvents">
+                                <!-- سيتم ملؤها عبر JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-  <h4>فعاليات ذات صلة</h4>
-
-  <div class="row">
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-body">
-          <h6>حفل جاز</h6>
-          <a href="event.html" class="btn btn-sm btn-outline-primary">التفاصيل</a>
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 class="fw-bold">دليل فعاليات المدينة</h5>
+                    <p>منصة تجمع كل الفعاليات والأنشطة في مدينة واحدة</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="fw-bold">روابط سريعة</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white text-decoration-none">الرئيسية</a></li>
+                        <li><a href="events.html" class="text-white text-decoration-none">الفعاليات</a></li>
+                        <li><a href="about.html" class="text-white text-decoration-none">عن الدليل</a></li>
+                        <li><a href="contact.html" class="text-white text-decoration-none">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="fw-bold">تابعنا</h5>
+                    <div class="social-icons">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-2x"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-2x"></i></a>
+                    </div>
+                    <p class="mt-3">© <span class="current-year">2025</span> دليل فعاليات المدينة. جميع الحقوق محفوظة.</p>
+                </div>
+            </div>
         </div>
-      </div>
+    </footer>
+
+    <!-- Modal للمنظم -->
+    <div class="modal fade" id="organizerModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">معلومات المنظم</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="organizerInfo">
+                        معلومات المنظم ستظهر هنا...
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 
-</main>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        // بيانات الفعاليات (نفس بيانات events.html)
+       const events = [
+    {
+        id: 1,
+        title: "مهرجان الطعام العالمي",
+        date: "الجمعة 18 ديسمبر 2025",
+        time: "10:00 صباحاً - 10:00 مساءً",
+        location: "الحديقة المركزية",
+        category: "ثقافة",
+        image: "assets/images/food-festival.jpg",
+        description: `مهرجان الطعام العالمي هو حدث سنوي يجمع أفضل المطاعم والشيفات في المدينة لعرض أطباقهم المميزة من مختلف الثقافات.`,
+        price: "مجاني",
+        organizer: "بلدية المدينة",
+        organizerInfo: "بلدية المدينة هي الجهة المنظمة للعديد من الفعاليات الثقافية والترفيهية في المدينة.",
+        gallery: [
+            "assets/images/food1.jpg",
+            "assets/images/food2.jpg",
+            "assets/images/food3.jpg",
+            "assets/images/food4.jpg"
+        ]
+    },
+    {
+        id: 2,
+        title: "ماراثون المدينة السنوي",
+        date: "السبت 20 ديسمبر 2025",
+        time: "07:00 صباحاً - 12:00 ظهراً",
+        location: "شوارع المدينة",
+        category: "رياضة",
+        image: "assets/images/marathon.jpg",
+        description: `ماراثون لجميع الأعمار والمستويات مع جوائز قيمة للمراكز الأولى`,
+        price: "25000 ليرة",
+        organizer: "نادي المدينة الرياضي",
+        organizerInfo: "نادي المدينة الرياضي هو منظمة رياضية تهدف إلى تنظيم الفعاليات الرياضية في المدينة.",
+        gallery: [
+            "assets/images/marathon1.jpg",
+            "assets/images/marathon2.jpg",
+            "assets/images/marathon3.jpg"
+        ]
+    },
+    {
+        id: 3,
+        title: "حفل موسيقى الجاز",
+        date: "الأحد 22 ديسمبر 2025",
+        time: "08:00 مساءً - 11:00 مساءً",
+        location: "قاعة المؤتمرات",
+        category: "موسيقى",
+        image: "assets/images/jazz.jpg",
+        description: `أفضل فرق الجاز المحلية والدولية في حفل مميز تحت النجوم`,
+        price: "15000 ليرة",
+        organizer: "مؤسسة الفنون",
+        organizerInfo: "مؤسسة الفنون هي مؤسسة ثقافية تهدف إلى دعم الفنون والموسيقى في المدينة.",
+        gallery: [
+            "assets/images/jazz1.jpg",
+            "assets/images/jazz2.jpg"
+        ]
+    },
+    {
+        id: 4,
+        title: "ورشة الفن للأطفال",
+        date: "الاثنين 24 ديسمبر 2025",
+        time: "03:00 مساءً - 05:00 مساءً",
+        location: "مركز الإبداع",
+        category: "عائلة",
+        image: "assets/images/kids-art.jpg",
+        description: `ورشة فنية تعليمية للأطفال مع فنانين محترفين`,
+        price: "10000 ليرة",
+        organizer: "مركز الإبداع",
+        organizerInfo: "مركز الإبداع هو مركز تعليمي وترفيهي للأطفال في المدينة.",
+        gallery: [
+            "assets/images/kids1.jpg",
+            "assets/images/kids2.jpg",
+            "assets/images/kids3.jpg"
+        ]
+    },
+    {
+        id: 5,
+        title: "ندوة الذكاء الاصطناعي",
+        date: "الخميس 26 ديسمبر 2025",
+        time: "06:00 مساءً - 09:00 مساءً",
+        location: "جامعة المدينة",
+        category: "تعليم",
+        image: "assets/images/ai.jpg",
+        description: `أحدث تطورات الذكاء الاصطناعي وتطبيقاته في الحياة اليومية`,
+        price: "مجاني",
+        organizer: "كلية الحاسبات",
+        organizerInfo: "كلية الحاسبات في جامعة المدينة تهدف إلى نشر المعرفة التقنية.",
+        gallery: [
+            "assets/images/ai1.jpg",
+            "assets/images/ai2.jpg"
+        ]
+    },
+    {
+        id: 6,
+        title: "معرض السيارات الكلاسيكية",
+        date: "السبت 28 ديسمبر 2025",
+        time: "09:00 صباحاً - 06:00 مساءً",
+        location: "ميدان المعارض",
+        category: "ثقافة",
+        image: "assets/images/cars.jpg",
+        description: `عرض لأندر السيارات الكلاسيكية والمعدلة`,
+        price: "20000 ليرة",
+        organizer: "نادي هواة السيارات",
+        organizerInfo: "نادي هواة السيارات يجمع محبي السيارات الكلاسيكية والنادرة.",
+        gallery: [
+            "assets/images/cars1.jpg",
+            "assets/images/cars2.jpg",
+            "assets/images/cars3.jpg"
+        ]
+    },
+    {
+        id: 7,
+        title: "بطولة كرة القدم للشباب",
+        date: "الاثنين 30 ديسمبر 2025",
+        time: "04:00 مساءً - 08:00 مساءً",
+        location: "الملعب الأولمبي",
+        category: "رياضة",
+        image: "assets/images/football.jpg",
+        description: `بطولة بين أندية الشباب تحت 18 سنة`,
+        price: "مجاني",
+        organizer: "اتحاد كرة القدم",
+        organizerInfo: "اتحاد كرة القدم المحلي ينظم البطولات والمسابقات الرياضية.",
+        gallery: [
+            "assets/images/football1.jpg",
+            "assets/images/football2.jpg"
+        ]
+    },
+    {
+        id: 8,
+        title: "حفل الأوركسترا السيمفونية",
+        date: "الأربعاء 1 يناير 2026",
+        time: "07:30 مساءً - 10:00 مساءً",
+        location: "المسرح الوطني",
+        category: "موسيقى",
+        image: "assets/images/event1.jpg",
+        description: `احتفال بالعام الجديد مع أروع المقطوعات الكلاسيكية`,
+        price: "100000 ليرة",
+        organizer: "الأوركسترا الوطنية",
+        organizerInfo: "الأوركسترا الوطنية هي مجموعة موسيقية محترفة تقدم عروضاً سيمفونية.",
+        gallery: [
+            "assets/images/orchestra1.jpg",
+            "assets/images/orchestra2.jpg"
+        ]
+    }
+];
 
-<footer class="bg-dark text-white text-center p-3">
-  © 2025 دليل فعاليات المدينة
-</footer>
+// تحميل بيانات الفعالية بناءً على ID من URL
+document.addEventListener('DOMContentLoaded', function() {
+    // الحصول على ID الفعالية من الرابط
+    const urlParams = new URLSearchParams(window.location.search);
+    const eventId = urlParams.get('id');
+    
+    console.log("ID الفعالية من الرابط:", eventId); // للتصحيح
+    
+    // البحث عن الفعالية المناسبة
+    let event;
+    
+    if (eventId) {
+        // البحث باستخدام ID الفعالية
+        event = events.find(e => e.id == eventId); // استخدام == وليس === لأن eventId من URL يأتي كنص
+    }
+    
+    // إذا لم يتم العثور على الفعالية، نعرض رسالة خطأ أو نعيد التوجيه
+    if (!event) {
+        console.error("لم يتم العثور على الفعالية مع ID:", eventId);
+        
+        // عرض رسالة للمستخدم
+        document.querySelector('main').innerHTML = `
+            <div class="container mt-5 pt-5">
+                <div class="alert alert-danger text-center" role="alert">
+                    <h4 class="alert-heading">⚠️ الفعالية غير موجودة</h4>
+                    <p>عذراً، لم يتم العثور على الفعالية المطلوبة.</p>
+                    <hr>
+                    <p class="mb-0">
+                        <a href="events.html" class="btn btn-primary">عرض جميع الفعاليات</a>
+                        <a href="index.html" class="btn btn-outline-primary ms-2">العودة للرئيسية</a>
+                    </p>
+                </div>
+            </div>
+        `;
+        return; // إيقاف تنفيذ باقي الكود
+    }
+    
+    // تحديث محتوى الصفحة بالبيانات
+    updatePageContent(event);
+    
+    // عرض فعاليات ذات صلة
+    displayRelatedEvents(event.category, event.id);
+});
 
+// دالة تحديث محتوى الصفحة
+function updatePageContent(event) {
+    document.getElementById('eventTitle').textContent = event.title;
+    document.getElementById('eventCategory').textContent = event.category;
+    document.getElementById('eventDate').textContent = event.date;
+    document.getElementById('eventTime').textContent = event.time;
+    document.getElementById('eventLocation').textContent = event.location;
+    document.getElementById('eventLocationText').textContent = event.location;
+    document.getElementById('eventDescription').textContent = event.description;
+    document.getElementById('eventPrice').textContent = event.price;
+    document.getElementById('eventOrganizer').textContent = event.organizer;
+    document.getElementById('mainEventImage').src = event.image;
+    document.getElementById('mainEventImage').alt = event.title;
+    document.getElementById('organizerInfo').textContent = event.organizerInfo;
+    
+    // تحديث عنوان الصفحة
+    document.title = `${event.title} - دليل فعاليات المدينة`;
+    
+    // إنشاء معرض الصور
+    const galleryContainer = document.getElementById('eventGallery');
+    galleryContainer.innerHTML = ''; // تفريغ المحتوى القديم
+    
+    if (event.gallery && event.gallery.length > 0) {
+        event.gallery.forEach((imgSrc, index) => {
+            galleryContainer.innerHTML += `
+                <div class="col-6 col-md-3">
+                    <img src="${imgSrc}" 
+                         class="img-fluid rounded gallery-img" 
+                         alt="صورة ${index + 1} من ${event.title}"
+                         onclick="openImageModal('${imgSrc}')">
+                </div>
+            `;
+        });
+    } else {
+        galleryContainer.innerHTML = `
+            <div class="col-12 text-center">
+                <p class="text-muted">لا تتوفر صور إضافية لهذه الفعالية</p>
+            </div>
+        `;
+    }
+}
+
+// دالة عرض الفعاليات ذات الصلة (محدثة)
+function displayRelatedEvents(category, currentId) {
+    // تصفية الفعاليات من نفس الفئة ولكن ليست الفعالية الحالية
+    const relatedEvents = events.filter(e => 
+        e.category === category && e.id != currentId
+    ).slice(0, 3); // أخذ أول 3 فعاليات فقط
+    
+    const container = document.getElementById('relatedEvents');
+    container.innerHTML = ''; // تفريغ المحتوى القديم
+    
+    if (relatedEvents.length === 0) {
+        container.innerHTML = '<p class="text-muted">لا توجد فعاليات ذات صلة حالياً</p>';
+        return;
+    }
+    
+    relatedEvents.forEach(event => {
+        container.innerHTML += `
+            <div class="mb-3">
+                <a href="event.html?id=${event.id}" class="text-decoration-none">
+                    <div class="d-flex align-items-center border rounded p-2 hover-effect">
+                        <img src="${event.image}" 
+                             alt="${event.title}" 
+                             class="rounded me-2"
+                             style="width: 60px; height: 60px; object-fit: cover;">
+                        <div>
+                            <h6 class="mb-0 text-dark">${event.title}</h6>
+                            <small class="text-muted">${event.date}</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        `;
+    });
+    
+    container.innerHTML += `
+        <div class="text-center mt-3">
+            <a href="events.html?category=${category}" class="btn btn-sm btn-outline-primary">
+                المزيد من فعاليات ${category} <i class="fas fa-arrow-left ms-1"></i>
+            </a>
+        </div>
+    `;
+}
+
+        // دالة فتح صورة في مودال
+        function openImageModal(imgSrc) {
+            // في تطبيق حقيقي، يمكن استخدام مودال لعرض الصورة بشكل أكبر
+            window.open(imgSrc, '_blank');
+        }
+
+        // دالة إضافة للتقويم
+        function registerForEvent() {
+            const eventTitle = document.getElementById('eventTitle').textContent;
+            const eventDate = document.getElementById('eventDate').textContent;
+            
+            // في تطبيق حقيقي، يمكن استخدام APIs مثل Google Calendar API
+            // هنا نعرض نموذج حجز وهمي (Bonus Feature)
+            const modalHTML = `
+                <div class="modal fade" id="registerModal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">حجز مكان في الفعالية</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>أنت تحجز مكاناً في فعالية: <strong>${eventTitle}</strong></p>
+                                <form id="bookingForm">
+                                    <div class="mb-3">
+                                        <label class="form-label">عدد الأشخاص</label>
+                                        <input type="number" class="form-control" value="1" min="1" max="10">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">ملاحظات إضافية (اختياري)</label>
+                                        <textarea class="form-control" rows="3" placeholder="أي متطلبات خاصة..."></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                                <button type="button" class="btn btn-primary" onclick="confirmBooking()">تأكيد الحجز</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // إضافة المودال إلى الصفحة وعرضه
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+            const modal = new bootstrap.Modal(document.getElementById('registerModal'));
+            modal.show();
+            
+            // تنظيف المودال بعد الإغلاق
+            document.getElementById('registerModal').addEventListener('hidden.bs.modal', function() {
+                this.remove();
+            });
+        }
+
+        // دالة تأكيد الحجز
+        function confirmBooking() {
+            alert('تم حجز مكانك بنجاح! سيصلك تأكيد عبر البريد الإلكتروني.');
+            const modal = bootstrap.Modal.getInstance(document.getElementById('registerModal'));
+            modal.hide();
+            
+            // في تطبيق حقيقي، هنا نرسل البيانات للخادم
+            addToCalendar(
+                document.getElementById('eventTitle').textContent,
+                document.getElementById('eventDate').textContent
+            );
+        }
+
+        // دالة مشاركة الفعالية الحالية
+        function shareCurrentEvent() {
+            const eventTitle = document.getElementById('eventTitle').textContent;
+            const currentUrl = window.location.href;
+            shareEvent(eventTitle, currentUrl);
+        }
+
+        // دالة فتح الخريطة
+        function openMap() {
+            const location = document.getElementById('eventLocation').textContent;
+            // في تطبيق حقيقي، نستخدم إحداثيات الموقع
+            alert(`سيتم فتح موقع "${location}" في تطبيق الخرائط`);
+            // window.open(`https://maps.google.com/?q=${encodeURIComponent(location)}`);
+        }
+    </script>
 </body>
 </html>
