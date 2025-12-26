@@ -1,18 +1,125 @@
-body {
-  font-family: "Cairo", sans-serif; //  وضعنا نوع خط آخر لكي يتم استخدامه في حال لم يتم تحميل الخط الرئيسي
-  background-color: #f8f9fa;
+
+/* Dark Mode (Bonus Feature) */
+.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
 }
 
-h2 {
-  color: #333;
+.dark-mode .card {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
 }
 
-.card {
-  margin-bottom: 20px;
+.dark-mode .navbar-light {
+    background-color: #1e1e1e !important;
 }
 
-.logo {
-  background-color:white;
-  width: 50px;
-  height: 50px;
+.dark-mode .navbar-light .navbar-brand,
+.dark-mode .navbar-light .nav-link {
+    color: #e0e0e0 !important;
+}
+
+.dark-mode footer {
+    background-color: #0a0a0a !important;
+}
+
+/* تأثيرات Hover للبطاقات */
+.hover-effect {
+    transition: all 0.3s ease;
+}
+
+.hover-effect:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* تأثيرات للأزرار */
+.btn {
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* تخصيص العناوين */
+.display-4, .display-5 {
+    background: linear-gradient(45deg, #4361ee, #f72585);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* تصميم متجاوب إضافي */
+@media (max-width: 576px) {
+    .display-4 {
+        font-size: 2.5rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .btn-lg {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+}
+
+/* تحسينات للنماذج */
+.form-control:focus, .form-select:focus {
+    border-color: #4361ee;
+    box-shadow: 0 0 0 0.25rem rgba(67, 97, 238, 0.25);
+}
+
+/* تخصيص الألوان لل badges */
+.badge.bg-primary {
+    background: linear-gradient(45deg, #4361ee, #3a0ca3) !important;
+}
+
+/* تحسينات للصور */
+.img-fluid {
+    border-radius: 10px;
+}
+
+/* تأثيرات للروابط */
+a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #f72585 !important;
+}
+
+/* تخصيص التبويبات */
+.nav-tabs .nav-link.active {
+    background-color: #4361ee;
+    color: white !important;
+    border-color: #4361ee;
+}
+
+/* تخصيص الـ Accordion */
+.accordion-button:not(.collapsed) {
+    background-color: rgba(67, 97, 238, 0.1);
+    color: #4361ee;
+}
+
+/* تخصيص الـ Alerts */
+.alert-primary {
+    background-color: rgba(67, 97, 238, 0.1);
+    border-color: rgba(67, 97, 238, 0.3);
+    color: #4361ee;
+}
+
+/* تأثيرات للـ Social Icons */
+.social-links .btn-outline-primary:hover {
+    background-color: #4361ee;
+    color: white;
+}
+
+/* تحسينات للفوتر */
+footer a:hover {
+    text-decoration: underline;
 }
